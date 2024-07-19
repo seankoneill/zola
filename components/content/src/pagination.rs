@@ -130,7 +130,7 @@ impl<'a> Paginator<'a> {
 
         for p in &*self.all_pages {
             let page = &library.pages[p];
-            if !page.meta.render {
+            if !page.meta.render || page.meta.hidden {
                 continue;
             }
             current_page.push(SerializingPage::new(page, Some(library), false));

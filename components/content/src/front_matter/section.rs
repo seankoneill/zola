@@ -27,6 +27,9 @@ pub struct SectionFrontMatter {
     pub weight: usize,
     /// whether the section is a draft
     pub draft: bool,
+    /// Whether this section is hidden
+    /// Defaults to `false`
+    pub hidden: bool,
     /// Optional template, if we want to specify which template to render for that section
     #[serde(skip_serializing)]
     pub template: Option<String>,
@@ -116,6 +119,7 @@ impl Default for SectionFrontMatter {
             generate_feeds: false,
             extra: Map::new(),
             draft: false,
+            hidden: false,
         }
     }
 }

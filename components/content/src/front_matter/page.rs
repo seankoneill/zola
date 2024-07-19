@@ -39,6 +39,9 @@ pub struct PageFrontMatter {
     pub datetime_tuple: Option<(i32, u8, u8)>,
     /// Whether this page is a draft
     pub draft: bool,
+    /// Whether this page is hidden
+    /// Defaults to `false`
+    pub hidden: bool,
     /// Prevent generation of a folder for current page
     /// Defaults to `true`
     #[serde(skip_serializing)]
@@ -155,6 +158,7 @@ impl Default for PageFrontMatter {
             datetime: None,
             datetime_tuple: None,
             draft: false,
+            hidden: false,
             render: true,
             slug: None,
             path: None,

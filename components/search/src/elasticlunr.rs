@@ -107,7 +107,7 @@ fn add_section_to_index(
     library: &Library,
     search_config: &Search,
 ) {
-    if !section.meta.in_search_index {
+    if !section.meta.in_search_index || section.meta.hidden {
         return;
     }
 
@@ -128,7 +128,7 @@ fn add_section_to_index(
 
     for key in &section.pages {
         let page = &library.pages[key];
-        if !page.meta.in_search_index {
+        if !page.meta.in_search_index || page.meta.hidden {
             continue;
         }
 
